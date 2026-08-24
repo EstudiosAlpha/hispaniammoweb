@@ -79,7 +79,7 @@ export default function SistemasPage() {
       <SectionHeading
         eyebrow="Sistemas de juego"
         title="Un reino con reglas que se cumplen"
-        intro="Todo lo que sigue está resuelto en el servidor: si Hispania no lo aprueba, no ocurre. Ni el daño, ni la moneda, ni la conquista de un castillo."
+        intro="Grupos, clanes, alianzas, comercio, castillos y asedios. Todo lo que puedes hacer en Hispania más allá de subir de nivel."
       />
 
       <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -111,15 +111,15 @@ export default function SistemasPage() {
 
       <section className="panel panel-riveted mt-12 p-8 sm:p-10">
         <SectionHeading
-          eyebrow="Bajo el capó"
-          title="Por qué el servidor manda"
+          eyebrow="Nuestro compromiso"
+          title="Un reino justo para todos"
           align="left"
         />
         <div className="mt-8 grid gap-8 md:grid-cols-3">
           {[
-            ['Nada se decide en tu equipo', 'Tu cliente pide moverse o atacar; Hispania comprueba rutas, alcance, línea de visión y enfriamientos antes de aceptar.'],
-            ['Nada se duplica', 'Cada objeto existe en un único sitio. Las compras simultáneas se ponen en cola y una operación repetida devuelve el resultado original.'],
-            ['Nada se pierde', 'Tu posición, vida, inventario, monedero y progreso se guardan de forma atómica y sobreviven a cualquier desconexión.'],
+            ['Sin trampas', 'Nadie puede alterar su daño, teletransportarse ni generar oro de la nada. Ganas por tu juego, no por tu programa.'],
+            ['Sin objetos duplicados', 'Cada pieza de equipo es única y no se puede clonar. La economía del reino mantiene su valor.'],
+            ['Sin progreso perdido', 'Tu posición, tu equipo, tu monedero y tu avance quedan a salvo aunque se te caiga la conexión en mitad de un combate.'],
           ].map(([title, bodyText]) => (
             <div key={title}>
               <h3 className="display text-lg text-[var(--parchment)]">{title}</h3>

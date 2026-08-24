@@ -5,7 +5,7 @@ import { classes, skills } from '../lib/data';
 export const metadata: Metadata = {
   title: 'Habilidades',
   description:
-    'Todas las habilidades de HispaniaMMO con sus costes de maná, tiempos de lanzamiento, alcance y efectos reales resueltos por el servidor.',
+    'Todas las habilidades de HispaniaMMO con sus costes de maná, tiempos de lanzamiento, alcance y efectos reales.',
 };
 
 const ACQUISITION: Record<string, string> = {
@@ -21,8 +21,8 @@ export default function HabilidadesPage() {
     <main className="mx-auto max-w-7xl px-5 pt-16 sm:px-8">
       <SectionHeading
         eyebrow="Grimorio del reino"
-        title="Habilidades resueltas por el servidor"
-        intro="Coste de maná, tiempo de lanzamiento, enfriamiento, alcance y efectos: todo se valida en el servidor antes de aplicarse. Aquí tienes los valores exactos con los que se juega."
+        title="El grimorio de Hispania"
+        intro="Coste de maná, tiempo de lanzamiento, enfriamiento, alcance y efectos. Estos son los valores exactos con los que se juega, sin redondeos ni aproximaciones."
       />
 
       <div className="mt-14 grid gap-6 lg:grid-cols-2">

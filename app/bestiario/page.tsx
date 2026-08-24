@@ -23,7 +23,7 @@ export default function BestiarioPage() {
       <SectionHeading
         eyebrow="Bestiario de Hispania"
         title="Lo que acecha más allá de la villa"
-        intro="Cada criatura tiene su propio temperamento, radio de agresividad, facción y comportamiento de IA. El servidor decide cuándo te persiguen, cuándo se ayudan entre ellas y cuándo vuelven a casa."
+        intro="Cada criatura tiene su propio temperamento, radio de agresividad, facción y comportamiento. Unas te ignoran, otras te persiguen en cuanto te ven, y algunas llaman a los suyos para acabar contigo."
       />
 
       <div className="mt-14 space-y-6">

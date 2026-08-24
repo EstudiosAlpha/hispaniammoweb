@@ -62,12 +62,34 @@ const data = raw as unknown as {
   items: Item[]; weapons: Weapon[]; npcs: Npc[];
 };
 
-export const classes = data.classes;
-export const skills = data.skills;
-export const mobs = data.mobs;
-export const items = data.items;
-export const weapons = data.weapons;
-export const npcs = data.npcs;
+/**
+ * A few descriptions in the game data are written for the development team
+ * rather than for players. We rewrite those for display only, so re-exporting
+ * the content from the game keeps working without reintroducing internal
+ * wording.
+ */
+const PLAYER_FACING_DESCRIPTIONS: Record<string, string> = {
+  'Ataque básico': 'El golpe fundamental de todo héroe de Hispania. Rápido, fiable y sin coste de maná.',
+  'Llama hispana': 'Prende al enemigo con fuego arcano: daño inmediato y una quemadura que sigue consumiéndolo.',
+  'Pergamino de encantamiento': 'Pergamino que refuerza una pieza de equipo. Si la suerte falla, el objeto se pierde.',
+  'Pergamino bendito': 'Pergamino protegido: si el encantamiento fracasa, tu equipo sobrevive al intento.',
+  'Pergamino especial': 'Pergamino reservado a las piezas más valiosas del reino.',
+};
+
+function withPlayerCopy<T extends { name: string; description: string }>(entries: T[]): T[] {
+  return entries.map((entry) =>
+    PLAYER_FACING_DESCRIPTIONS[entry.name]
+      ? { ...entry, description: PLAYER_FACING_DESCRIPTIONS[entry.name] }
+      : entry,
+  );
+}
+
+export const classes = withPlayerCopy(data.classes);
+export const skills = withPlayerCopy(data.skills);
+export const mobs = withPlayerCopy(data.mobs);
+export const items = withPlayerCopy(data.items);
+export const weapons = withPlayerCopy(data.weapons);
+export const npcs = withPlayerCopy(data.npcs);
 
 export const baseClasses = classes
   .filter((c) => c.tier === 0)

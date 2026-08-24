@@ -4,8 +4,8 @@ import { baseClasses, classes, mobs, npcs, skills, themeOf } from './lib/data';
 
 const PILLARS = [
   {
-    title: 'Servidor autoritativo',
-    body: 'Cada golpe, ruta y moneda se resuelve en el servidor. El cliente solo representa lo que Hispania ya ha decidido.',
+    title: 'Juego limpio',
+    body: 'Nadie puede hacer trampas con el daño, la posición ni el oro. En Hispania todos compiten en igualdad de condiciones.',
   },
   {
     title: 'Progresión en cuatro escalones',
@@ -53,9 +53,9 @@ export default function Home() {
         <div className="relative mx-auto max-w-5xl px-5 pt-20 pb-24 text-center sm:px-8 sm:pt-28 sm:pb-32">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo.jpg"
+            src="/logo.png"
             alt="HispaniaMMO"
-            className="mx-auto w-full max-w-2xl mix-blend-screen drop-shadow-[0_10px_40px_rgba(200,162,74,0.28)]"
+            className="mx-auto w-full max-w-2xl drop-shadow-[0_10px_40px_rgba(200,162,74,0.28)]"
           />
 
           <p className="display mt-8 text-[12px] tracking-arms text-[var(--gold)]">
@@ -81,10 +81,10 @@ export default function Home() {
               Explorar las clases
             </Link>
             <Link
-              href="/mundo"
+              href="/arbol"
               className="btn-ghost display rounded-sm px-7 py-3.5 text-[12px] tracking-[0.18em] uppercase"
             >
-              Conocer Hispania
+              Árbol interactivo
             </Link>
           </div>
 
@@ -202,7 +202,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="El mundo"
               title="Hispania es un único reino continuo"
-              intro="Sin pantallas de carga entre regiones. La plaza, el mercado, la fortaleza, los caminos reales y las tierras salvajes forman un solo mapa donde el servidor decide quién ve qué y cuándo."
+              intro="Sin pantallas de carga entre regiones. La plaza, el mercado, la fortaleza, los caminos reales y las tierras salvajes forman un único mapa que puedes recorrer de punta a punta."
               align="left"
             />
             <ul className="mt-8 space-y-4">

@@ -5,6 +5,7 @@ const COLUMNS = [
     title: 'El juego',
     links: [
       { href: '/clases', label: 'Clases y profesiones' },
+      { href: '/arbol', label: 'Árbol interactivo' },
       { href: '/habilidades', label: 'Habilidades' },
       { href: '/sistemas', label: 'Sistemas de juego' },
     ],
@@ -34,10 +35,10 @@ export default function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.jpg" alt="HispaniaMMO" className="h-10 w-auto mix-blend-screen" />
+            <img src="/logo.png" alt="HispaniaMMO" className="h-10 w-auto" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--muted)]">
-              Un MMORPG de servidor autoritativo ambientado en una Hispania medieval
-              fantástica: seis linajes, sesenta profesiones y un reino por conquistar.
+              Un MMORPG ambientado en una Hispania medieval y fantástica: seis linajes,
+              sesenta profesiones y un reino por conquistar.
             </p>
           </div>
 

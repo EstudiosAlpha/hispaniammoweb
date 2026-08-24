@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 const NAV = [
   { href: '/clases', label: 'Clases' },
+  { href: '/arbol', label: 'Árbol' },
   { href: '/habilidades', label: 'Habilidades' },
   { href: '/bestiario', label: 'Bestiario' },
   { href: '/mundo', label: 'Mundo' },
@@ -39,9 +40,9 @@ export default function SiteHeader() {
         <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="HispaniaMMO — inicio">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo.jpg"
+            src="/logo.png"
             alt="HispaniaMMO"
-            className="h-9 w-auto mix-blend-screen sm:h-10"
+            className="h-9 w-auto sm:h-10"
           />
         </Link>
 

@@ -135,8 +135,8 @@ export default function ObjetosPage() {
             Encantamiento con el Herrero
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-[var(--parchment)]/70">
-            El Herrero de Hispania autoriza cada intento. Los tres tipos de pergamino aplican
-            políticas de fallo distintas, y la tirada la hace el servidor.
+            El Herrero de Hispania supervisa cada intento. Los tres tipos de pergamino se
+            comportan de forma distinta cuando la suerte no acompaña.
           </p>
           <div className="mt-6 space-y-3">
             {[

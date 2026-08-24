@@ -17,7 +17,7 @@ const body = Inter({
 
 const SITE_TITLE = 'HispaniaMMO — MMORPG medieval de la Hispania legendaria';
 const SITE_DESCRIPTION =
-  'MMORPG de servidor autoritativo ambientado en una Hispania medieval fantástica. 6 linajes, 18 ramas y 60 profesiones hasta nivel 75, asedios de castillo, clanes, alianzas y PvP.';
+  'MMORPG ambientado en una Hispania medieval y fantástica. 6 linajes, 18 ramas y 60 profesiones hasta nivel 75, asedios de castillo, clanes, alianzas y PvP.';
 
 export const metadata: Metadata = {
   title: {

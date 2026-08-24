@@ -58,7 +58,7 @@ export default function MundoPage() {
       <SectionHeading
         eyebrow="El reino"
         title="Hispania, un mundo sin costuras"
-        intro="No hay mapas separados ni pantallas de carga entre regiones. Hispania es un solo territorio continuo donde el servidor decide, metro a metro, qué ves y quién te ve."
+        intro="No hay mapas separados ni pantallas de carga entre regiones. Hispania es un solo territorio continuo: desde la plaza de la villa hasta las ruinas de Numancia se llega caminando."
       />
 
       <section className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
