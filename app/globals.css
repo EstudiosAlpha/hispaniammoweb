@@ -1,0 +1,176 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #0b0a09;
+  --foreground: #e8dfcf;
+  --gold: #c8a24a;
+  --gold-bright: #e6c56f;
+  --gold-deep: #8a6a26;
+  --iron: #1a1714;
+  --iron-light: #24201b;
+  --parchment: #d8cbb0;
+  --muted: #9a8d78;
+  --line: rgba(200, 162, 74, 0.22);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-deep: var(--gold-deep);
+  --color-iron: var(--iron);
+  --color-iron-light: var(--iron-light);
+  --color-parchment: var(--parchment);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(200, 162, 74, 0.13), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(125, 143, 214, 0.06), transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  color: var(--foreground);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(200, 162, 74, 0.3);
+  color: #fff;
+}
+
+/* --- Ornamental primitives --- */
+
+.display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.gold-text {
+  background: linear-gradient(180deg, #f2dda1 0%, var(--gold) 45%, #7d5f21 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.rule-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.panel {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(36, 32, 27, 0.94), rgba(16, 14, 12, 0.96));
+  border: 1px solid var(--line);
+  box-shadow:
+    inset 0 1px 0 rgba(232, 223, 207, 0.05),
+    0 18px 40px -24px rgba(0, 0, 0, 0.9);
+}
+
+/* Corner rivets, drawn with pure CSS instead of SVG art. */
+.panel-riveted::before,
+.panel-riveted::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--gold);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.panel-riveted::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.panel-riveted::after {
+  right: -1px;
+  bottom: -1px;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+}
+
+.hairline {
+  border-color: var(--line);
+}
+
+.tracking-arms {
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.btn-gold {
+  background: linear-gradient(180deg, var(--gold-bright), var(--gold) 45%, var(--gold-deep));
+  color: #17130a;
+  border: 1px solid rgba(255, 235, 180, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 246, 219, 0.55),
+    0 10px 26px -12px rgba(200, 162, 74, 0.75);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+}
+
+.btn-gold:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 246, 219, 0.65),
+    0 16px 34px -14px rgba(200, 162, 74, 0.9);
+}
+
+.btn-ghost {
+  border: 1px solid var(--line);
+  color: var(--parchment);
+  background: rgba(26, 23, 20, 0.6);
+  transition: border-color 0.16s ease, color 0.16s ease, background 0.16s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+  background: rgba(36, 32, 27, 0.85);
+}
+
+.card-hover {
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+  border-color: rgba(200, 162, 74, 0.55);
+  box-shadow: 0 26px 50px -30px rgba(0, 0, 0, 0.95);
+}
+
+.stat-bar {
+  background: rgba(232, 223, 207, 0.08);
+  overflow: hidden;
+}
+
+.stat-bar > span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card-hover,
+  .btn-gold {
+    transition: none;
+  }
+}
