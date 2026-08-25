@@ -19,7 +19,12 @@ const SITE_TITLE = 'HispaniaMMO — MMORPG medieval de la Hispania legendaria';
 const SITE_DESCRIPTION =
   'MMORPG ambientado en una Hispania medieval y fantástica. 6 linajes, 18 ramas y 60 profesiones hasta nivel 75, asedios de castillo, clanes, alianzas y PvP.';
 
+// Cambia esta dirección por el dominio definitivo cuando publiques la web.
+// Sirve para que la imagen de portada se vea al compartir el enlace.
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://hispaniammo.com';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: SITE_TITLE,
     template: '%s · HispaniaMMO',

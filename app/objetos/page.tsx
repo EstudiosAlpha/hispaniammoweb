@@ -69,18 +69,20 @@ export default function ObjetosPage() {
         </div>
       </section>
 
-      {[
-        ['Consumibles', consumables],
-        ['Materiales', materials],
-        ['Pergaminos de encantamiento', scrolls],
-        ['Reliquias de misión', questItems],
-      ]
-        .filter(([, list]) => (list as typeof items).length > 0)
+      {(
+        [
+          ['Consumibles', consumables],
+          ['Materiales', materials],
+          ['Pergaminos de encantamiento', scrolls],
+          ['Reliquias de misión', questItems],
+        ] as [string, typeof items][]
+      )
+        .filter(([, list]) => list.length > 0)
         .map(([title, list]) => (
-          <section key={String(title)} className="mt-16">
+          <section key={title} className="mt-16">
             <h2 className="display text-[12px] tracking-arms text-[var(--gold)]">{title}</h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {(list as typeof items).map((i) => (
+              {list.map((i) => (
                 <article key={i.slug} className="panel card-hover p-5">
                   <div className="flex items-start justify-between gap-2">
                     <h3 className="display text-[15px] leading-snug text-[var(--parchment)]">
