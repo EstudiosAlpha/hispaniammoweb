@@ -16,7 +16,15 @@ Abre <http://localhost:3000>.
 
 ```bash
 npm run build
-npm run start
+```
+
+Esto crea la carpeta `out/` con la web entera en archivos estáticos (HTML, CSS
+e imágenes). No necesita servidor: vale para GitHub Pages o cualquier hosting.
+
+Para verla antes de publicarla:
+
+```bash
+npm run preview
 ```
 
 ## Secciones
@@ -44,15 +52,43 @@ ese archivo y la web se actualiza sola.
 Algunas descripciones estaban escritas en lenguaje técnico interno. Se reescriben
 solo de cara al jugador en `app/lib/data.ts`, sin tocar los datos del juego.
 
-## Publicarla en internet
+## Publicarla en GitHub Pages
 
-El proyecto es Next.js estándar, así que funciona en cualquier hosting que lo
-admita. Opciones habituales:
+La web ya está preparada para GitHub Pages. Solo hay que hacerlo una vez:
 
-- **Vercel**: sube el repositorio y se despliega sin configurar nada.
-- **Netlify**, **Cloudflare Pages**, **Railway**, **Render**: igual de directo.
-- **Tu propio servidor**: `npm run build` y luego `npm run start`.
+1. **Sube el proyecto a GitHub.** Crea un repositorio nuevo y luego, desde esta
+   carpeta:
 
-Antes de publicar, define tu dominio en la variable `NEXT_PUBLIC_SITE_URL`
-(por ejemplo `https://hispaniammo.com`) para que la imagen de portada se vea
-correctamente al compartir el enlace.
+   ```bash
+   git remote add origin https://github.com/TU-USUARIO/TU-REPO.git
+   git push -u origin main
+   ```
+
+2. **Activa Pages.** En el repositorio, entra en *Settings → Pages* y, en
+   **Source**, elige **GitHub Actions**.
+
+Y ya está. Cada vez que subas cambios con `git push`, la web se regenera y se
+publica sola en unos minutos.
+
+La dirección será `https://TU-USUARIO.github.io/TU-REPO/`. La subcarpeta del
+repositorio se detecta automáticamente, así que el logo, los estilos y los
+enlaces funcionan sin que tengas que tocar nada.
+
+### Si prefieres un dominio propio
+
+En *Settings → Pages → Custom domain* escribe tu dominio (por ejemplo
+`hispaniammo.com`) y apunta el DNS a GitHub. El aviso de la subcarpeta
+desaparece solo.
+
+### Publicar en otro sitio
+
+Al ser archivos estáticos, la carpeta `out/` también sirve tal cual para
+Netlify, Cloudflare Pages, Vercel o cualquier alojamiento web clásico por FTP.
+
+## Detalles técnicos
+
+- `NEXT_PUBLIC_BASE_PATH`: subcarpeta donde vive la web. Lo rellena solo el
+  flujo de GitHub Actions; en local se deja vacío.
+- `NEXT_PUBLIC_SITE_URL`: dirección pública, usada para la imagen que se ve al
+  compartir el enlace.
+- `public/.nojekyll`: evita que GitHub ignore las carpetas internas de estilos.

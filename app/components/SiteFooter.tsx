@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { asset } from '../lib/assets';
 
 const COLUMNS = [
   {
@@ -35,7 +36,7 @@ export default function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.png" alt="HispaniaMMO" className="h-10 w-auto" />
+            <img src={asset('/logo.png')} alt="HispaniaMMO" className="h-10 w-auto" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--muted)]">
               Un MMORPG ambientado en una Hispania medieval y fantástica: seis linajes,
               sesenta profesiones y un reino por conquistar.

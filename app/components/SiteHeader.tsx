@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { asset } from '../lib/assets';
 
 const NAV = [
   { href: '/clases', label: 'Clases' },
@@ -40,7 +41,7 @@ export default function SiteHeader() {
         <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="HispaniaMMO — inicio">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo.png"
+            src={asset('/logo.png')}
             alt="HispaniaMMO"
             className="h-9 w-auto sm:h-10"
           />

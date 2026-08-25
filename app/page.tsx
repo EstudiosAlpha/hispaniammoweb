@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { SectionHeading, Stat } from './components/Section';
+import { asset } from './lib/assets';
 import { baseClasses, classes, mobs, npcs, skills, themeOf } from './lib/data';
 
 const PILLARS = [
@@ -53,7 +54,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-5xl px-5 pt-20 pb-24 text-center sm:px-8 sm:pt-28 sm:pb-32">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo.png"
+            src={asset('/logo.png')}
             alt="HispaniaMMO"
             className="mx-auto w-full max-w-2xl drop-shadow-[0_10px_40px_rgba(200,162,74,0.28)]"
           />

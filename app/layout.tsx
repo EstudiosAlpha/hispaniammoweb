@@ -3,6 +3,7 @@ import { Cinzel, Inter } from 'next/font/google';
 import './globals.css';
 import SiteHeader from './components/SiteHeader';
 import SiteFooter from './components/SiteFooter';
+import { asset } from './lib/assets';
 
 const display = Cinzel({
   variable: '--font-display',
@@ -30,20 +31,20 @@ export const metadata: Metadata = {
     template: '%s · HispaniaMMO',
   },
   description: SITE_DESCRIPTION,
-  icons: { icon: '/favicon.svg' },
+  icons: { icon: asset('/favicon.svg') },
   openGraph: {
     type: 'website',
     locale: 'es_ES',
     siteName: 'HispaniaMMO',
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: [{ url: '/og.png', width: 1536, height: 864, alt: 'HispaniaMMO' }],
+    images: [{ url: asset('/og.png'), width: 1536, height: 864, alt: 'HispaniaMMO' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ['/og.png'],
+    images: [asset('/og.png')],
   },
 };
 
