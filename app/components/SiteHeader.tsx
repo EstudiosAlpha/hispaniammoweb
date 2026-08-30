@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react';
 import { asset } from '../lib/assets';
 
 const NAV = [
+  { href: '/noticias', label: 'Noticias' },
   { href: '/clases', label: 'Clases' },
-  { href: '/arbol', label: 'Árbol' },
   { href: '/habilidades', label: 'Habilidades' },
   { href: '/bestiario', label: 'Bestiario' },
   { href: '/mundo', label: 'Mundo' },

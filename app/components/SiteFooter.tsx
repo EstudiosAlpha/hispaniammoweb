@@ -6,7 +6,6 @@ const COLUMNS = [
     title: 'El juego',
     links: [
       { href: '/clases', label: 'Clases y profesiones' },
-      { href: '/arbol', label: 'Árbol interactivo' },
       { href: '/habilidades', label: 'Habilidades' },
       { href: '/sistemas', label: 'Sistemas de juego' },
     ],
@@ -22,6 +21,7 @@ const COLUMNS = [
   {
     title: 'Comunidad',
     links: [
+      { href: '/noticias', label: 'Noticias del reino' },
       { href: '/jugar', label: 'Cómo empezar' },
       { href: '/mundo#npcs', label: 'Servicios de Hispania' },
       { href: '/sistemas#asedios', label: 'Asedios de castillo' },

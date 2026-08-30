@@ -26,15 +26,6 @@ export default function ClasesPage() {
         intro="En HispaniaMMO la progresión se decide en cuatro escalones: nivel 1, 20, 40 y 75. Cada elección es permanente y define cómo te verá el resto del reino."
       />
 
-      <div className="mt-8 flex justify-center">
-        <Link
-          href="/arbol"
-          className="btn-gold display rounded-sm px-7 py-3.5 text-[12px] tracking-[0.18em] uppercase"
-        >
-          Abrir el árbol interactivo
-        </Link>
-      </div>
-
       <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {TIERS.map((t) => (
           <div key={t.level} className="panel panel-riveted p-6">

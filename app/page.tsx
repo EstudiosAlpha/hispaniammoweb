@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { SectionHeading, Stat } from './components/Section';
 import { asset } from './lib/assets';
 import { baseClasses, classes, mobs, npcs, skills, themeOf } from './lib/data';
+import { categoriaDe, fechaLarga, noticias } from './lib/noticias';
 
 const PILLARS = [
   {
@@ -82,10 +83,10 @@ export default function Home() {
               Explorar las clases
             </Link>
             <Link
-              href="/arbol"
+              href="/noticias"
               className="btn-ghost display rounded-sm px-7 py-3.5 text-[12px] tracking-[0.18em] uppercase"
             >
-              Árbol interactivo
+              Últimas noticias
             </Link>
           </div>
 
@@ -268,6 +269,65 @@ export default function Home() {
                 <p className="text-[10px] tracking-arms text-[var(--muted)]">Raid Boss</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-[var(--line)] bg-[rgba(16,14,12,0.5)]">
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
+          <SectionHeading
+            eyebrow="Crónicas del reino"
+            title="Lo último en Hispania"
+            intro="Actualizaciones, eventos y avances del desarrollo. Todo lo que cambia en el reino se anuncia aquí primero."
+          />
+
+          <div className="mt-14 grid gap-5 md:grid-cols-3">
+            {noticias.slice(0, 3).map((noticia) => {
+              const theme = categoriaDe(noticia.category);
+              return (
+                <Link
+                  key={noticia.slug}
+                  href={'/noticias/' + noticia.slug}
+                  className="panel card-hover group flex flex-col p-7"
+                >
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span
+                      className="display rounded-sm border px-2.5 py-1 text-[10px] tracking-[0.18em] uppercase"
+                      style={{ borderColor: theme.accent + '66', color: theme.accent }}
+                    >
+                      {theme.label}
+                    </span>
+                    <time
+                      dateTime={noticia.date}
+                      className="text-[11px] tracking-arms text-[var(--muted)]"
+                    >
+                      {fechaLarga(noticia.date)}
+                    </time>
+                  </div>
+
+                  <h3 className="display mt-4 text-lg leading-snug text-[var(--parchment)] transition-colors group-hover:text-[var(--gold-bright)]">
+                    {noticia.title}
+                  </h3>
+
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-[var(--parchment)]/70">
+                    {noticia.summary}
+                  </p>
+
+                  <span className="display mt-6 border-t border-[var(--line)] pt-4 text-[11px] tracking-[0.18em] text-[var(--gold)] uppercase">
+                    Leer más →
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <Link
+              href="/noticias"
+              className="btn-ghost display rounded-sm px-7 py-3.5 text-[12px] tracking-[0.18em] uppercase"
+            >
+              Ver todas las noticias
+            </Link>
           </div>
         </div>
       </section>

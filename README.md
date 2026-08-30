@@ -32,8 +32,9 @@ npm run preview
 | Ruta | Contenido |
 | --- | --- |
 | `/` | Portada |
+| `/noticias` | Noticias del reino |
+| `/noticias/[noticia]` | Ficha de cada noticia |
 | `/clases` | Listado de los 6 linajes y sus 60 profesiones |
-| `/arbol` | Árbol de clases interactivo |
 | `/clases/[clase]` | Ficha de cada profesión |
 | `/habilidades` | Habilidades con sus valores reales |
 | `/bestiario` | Criaturas, estadísticas y botín |
