@@ -1,0 +1,26 @@
+{
+  "skills": {
+    "ataque-basico": "/images/game-icons/ability-2001.webp",
+    "flecha-serrana": "/images/game-icons/ability-2003.webp",
+    "impetu-de-hispania": "/images/game-icons/ability-2005.webp",
+    "llama-hispana": "/images/game-icons/ability-2002.webp",
+    "luz-de-numancia": "/images/game-icons/ability-2004.webp"
+  },
+  "items": {
+    "cuero-de-jabali-cantabrico": "/images/game-icons/inventory-13.webp",
+    "fragmento-numantino": "/images/game-icons/inventory-13.webp",
+    "insignia-bandida": "/images/game-icons/inventory-13.webp",
+    "pergamino-bendito": "/images/game-icons/inventory-14.webp",
+    "pergamino-de-encantamiento": "/images/game-icons/inventory-14.webp",
+    "pergamino-especial": "/images/game-icons/inventory-14.webp",
+    "piel-de-lobo-iberico": "/images/game-icons/inventory-13.webp",
+    "unguento-de-romero": "/images/game-icons/inventory-10.webp"
+  },
+  "weapons": {
+    "arco-cantabrico": "/images/game-icons/inventory-5.webp",
+    "baston-de-numancia": "/images/game-icons/inventory-5.webp",
+    "daga-bandolera": "/images/game-icons/inventory-5.webp",
+    "espada-de-toledo": "/images/game-icons/inventory-5.webp",
+    "maza-devota": "/images/game-icons/inventory-5.webp"
+  }
+}

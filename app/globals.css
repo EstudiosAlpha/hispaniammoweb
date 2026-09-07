@@ -435,3 +435,99 @@ a, button, input, select, summary { -webkit-tap-highlight-color: transparent; }
   .lineage-card h3 { font-size: 17px; }
   .level-badge { display: none; }
 }
+
+/* A shorter entrance to the codex, with the catalog in the foreground. */
+.catalog-home .codex-hero { min-height: 0; }
+.catalog-home .hero-content { padding-block: 30px 24px; }
+.catalog-home .hero-content h1 { font-size: clamp(28px, 3.5vw, 38px); margin-top: 9px; }
+.catalog-home .hero-description { margin-top: 9px; }
+.catalog-home .quick-search { margin-top: 19px; }
+.catalog-home .hero-caption { margin-top: 13px; }
+.catalog-home .section-space { padding-block: 30px; }
+.catalog-home .lineage-card { padding-top: 18px; }
+.catalog-home .class-emblem { width: 46px; height: 46px; }
+.catalog-home .class-emblem svg { width: 25px; height: 25px; }
+.catalog-home .lineage-card h3 { margin-top: 12px; }
+.catalog-home .lineage-card-bottom { margin-top: 17px; }
+.compact-news { padding-block: 10px 20px; }
+.compact-news h2 { font-family: var(--font-display), Georgia, serif; font-size: 22px; }
+.compact-news > a { display: flex; align-items: center; gap: 22px; padding-block: 15px; border-bottom: 1px solid var(--line); font-size: 14px; }
+.compact-news time { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.compact-news > a > svg { color: var(--gold); margin-left: auto; }
+.compact-news > a:hover { color: var(--gold); }
+@media (max-width: 700px) {
+  .catalog-home .codex-nav { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .catalog-home .codex-nav a { padding: 14px 12px; gap: 7px; font-size: 12px; border-bottom: 1px solid var(--line); }
+  .catalog-home .codex-nav small { margin-left: 4px; }
+  .catalog-home .codex-nav svg { width: 18px; height: 18px; }
+  .compact-news > a { flex-wrap: wrap; column-gap: 12px; row-gap: 3px; }
+  .compact-news time { width: 100%; }
+  .compact-news > a > span { flex: 1; }
+}
+
+/* Original game icons and compact, expandable catalog records. */
+.skills-grid, .skills-grid.class-skills { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.game-icon { width: 64px; height: 64px; object-fit: contain; flex-shrink: 0; border: 1px solid #b8a77455; border-radius: 5px; background: #0a1010; }
+.game-icon-missing { display: grid; place-items: center; color: var(--muted); }
+.codex-record { min-width: 0; border: 1px solid var(--line); border-radius: 5px; background: #131c19; transition: border-color .2s, background .2s; }
+.codex-record:hover, .codex-record:has(details[open]) { border-color: #b8a77470; }
+.codex-record:target { border-color: var(--gold); box-shadow: 0 0 0 3px #c7a76a20; }
+.codex-record summary { display: flex; align-items: center; gap: 18px; padding: 17px 20px; list-style: none; }
+.codex-record summary::-webkit-details-marker { display: none; }
+.record-name { min-width: 0; flex: 1; }
+.record-name > strong { display: block; color: #e5dfcc; font-family: var(--font-display), Georgia, serif; font-size: 18px; line-height: 1.4; font-weight: 500; }
+.record-subtitle { display: block; font-size: 14px; line-height: 1.6; color: var(--muted); margin-top: 5px; }
+.record-facts { display: flex; gap: 28px; margin-left: 10px; flex-shrink: 0; }
+.record-facts > span { min-width: 58px; }
+.record-facts small { display: block; color: var(--muted); font-size: 12px; }
+.record-facts b { display: block; font-size: 14px; font-weight: 500; color: #d5dac9; margin-top: 3px; white-space: nowrap; }
+.record-toggle { width: 24px; height: 24px; display: grid; place-items: center; flex-shrink: 0; color: var(--gold); font-size: 23px; line-height: 1; transition: transform .2s; }
+.codex-record details[open] > summary .record-toggle { transform: rotate(45deg); }
+.record-detail { border-top: 1px solid var(--line); padding: 22px; animation: fade-up .2s ease-out; }
+.record-description { color: #bdc5b7; font-size: 16px; line-height: 1.75; margin-bottom: 20px; }
+.record-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.record-stats dt { color: var(--muted); font-size: 12px; }
+.record-stats dd { color: #dcdfce; font-size: 14px; margin-top: 4px; }
+.record-effects { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+.record-effects p { padding: 9px 14px; background: #bda97009; border-left: 2px solid #bda97066; }
+.record-effects strong { display: block; font-size: 14px; color: #e1d6b8; font-weight: 500; }
+.record-effects p > span { display: block; font-size: 12px; color: var(--muted); margin-top: 3px; }
+.record-detail > .data-note { margin-top: 16px; }
+.item-category { margin-bottom: 30px; }
+.item-category > h2 { display: flex; align-items: center; gap: 12px; font-family: var(--font-display), Georgia, serif; font-size: 23px; color: #dfd9c6; margin-bottom: 14px; }
+.item-category > h2 > span { font-family: var(--font-body), sans-serif; font-size: 12px; color: var(--muted); }
+.item-records { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: start; }
+.item-price { color: #d0ba8a; text-align: right; font-size: 14px; white-space: nowrap; }
+.item-price small, .item-price > span { color: var(--muted); font-size: 12px; }
+.item-price > span { display: block; margin-top: 3px; }
+.item-record .record-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.inventory-guide { padding: 17px 20px; border: 1px solid var(--line); border-radius: 5px; margin-top: 32px; color: var(--muted); }
+.inventory-guide summary { color: #d8ccb0; display: flex; justify-content: space-between; gap: 15px; font-size: 14px; list-style: none; }
+.inventory-guide summary::-webkit-details-marker { display: none; }
+.inventory-guide summary > span { transition: transform .2s; }
+.inventory-guide[open] summary > span { transform: rotate(45deg); }
+.inventory-guide h2 { font-size: 16px; margin-top: 22px; margin-bottom: 9px; color: #d2d7c6; }
+.inventory-guide p, .inventory-guide li { font-size: 14px; line-height: 1.8; margin-top: 7px; }
+.inventory-guide strong { color: #c2c9b7; font-weight: 500; }
+@media (max-width: 1000px) {
+  .record-facts { gap: 16px; }
+  .item-records { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 700px) {
+  .codex-record summary { gap: 13px; padding: 15px; }
+  .game-icon { width: 54px; height: 54px; }
+  .record-name > strong { font-size: 16px; }
+  .skill-record summary { display: grid; grid-template-columns: 54px minmax(0, 1fr) 22px; }
+  .skill-record summary > .game-icon { grid-column: 1; align-self: start; }
+  .skill-record .record-name { grid-column: 2; }
+  .skill-record .record-toggle { grid-column: 3; grid-row: 1; }
+  .skill-record .record-facts { grid-column: 2 / -1; margin-left: 0; gap: 16px; flex-wrap: wrap; }
+  .record-facts > span { min-width: 50px; }
+  .record-subtitle { font-size: 14px; }
+  .record-detail { padding: 19px; }
+  .record-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .item-record summary { display: grid; grid-template-columns: 54px minmax(0, 1fr) 22px; }
+  .item-record .record-toggle { grid-column: 3; grid-row: 1; }
+  .item-price { grid-column: 2; text-align: left; }
+  .item-price > span { display: inline; margin-left: 8px; }
+}

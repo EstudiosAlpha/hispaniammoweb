@@ -47,7 +47,7 @@ npm run preview
 
 - Búsqueda global de clases, habilidades, criaturas, objetos, armas y habitantes.
 - Catálogo de profesiones con filtros por linaje, nivel y rol, búsqueda por habilidad y vista del árbol de evolución.
-- Fichas con secciones de habilidades, atributos y evolución. Cada técnica muestra maná, alcance, recarga y un desglose desplegable.
+- Fichas con secciones de habilidades, atributos y evolución. Técnicas y objetos se presentan en filas compactas con sus iconos originales y detalles desplegables.
 - El grimorio filtra las habilidades por linaje y enlaza a las profesiones que las utilizan.
 - Navegación móvil, acceso por teclado y animaciones que respetan `prefers-reduced-motion`.
 
@@ -58,6 +58,25 @@ de los roles. Los efectos que aún no tienen desglose se indican como pendientes
 
 La ilustración ambiental de portada es un recurso original generado para esta
 web. Se sirve localmente como WebP (`public/images/hispania-hero.webp`).
+
+## Iconos originales del juego
+
+Los iconos de habilidades se extraen de `AbilitiesAtlas.png` y los de inventario
+de `InventoryIconAtlas.png`, siguiendo las mismas celdas que usa el cliente de
+Unity. Están incluidos en `public/images/game-icons/`, con el mapa por registro
+en `app/data/game-icons.json`; el sitio publicado no necesita acceder a Unity.
+
+Para volver a exportarlos con el proyecto del juego disponible:
+
+```bash
+node scripts/export-game-icons.mjs ../HispaniaMMO
+```
+
+El exportador conserva las asignaciones actuales: las cinco habilidades tienen
+icono propio; armas, materiales y pergaminos comparten iconos por categoría,
+igual que en el inventario del juego. La selección está documentada junto al
+código del exportador. Si se añaden registros nuevos, hay que comprobar su icono
+en el cliente antes de ampliar ese mapa.
 
 ## De dónde salen los datos
 
