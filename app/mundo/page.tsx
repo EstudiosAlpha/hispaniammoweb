@@ -54,7 +54,7 @@ export default function MundoPage() {
     .sort((a, b) => SERVICE_ORDER.indexOf(a.service) - SERVICE_ORDER.indexOf(b.service));
 
   return (
-    <main className="mx-auto max-w-7xl px-5 pt-16 sm:px-8">
+    <main id="contenido" className="mx-auto max-w-7xl px-5 pt-16 sm:px-8">
       <SectionHeading
         eyebrow="El reino"
         title="Hispania, un mundo sin costuras"

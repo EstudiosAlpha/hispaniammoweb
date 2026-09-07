@@ -13,7 +13,7 @@ export default function NoticiasPage() {
   const [destacada, ...resto] = noticias;
 
   return (
-    <main className="mx-auto max-w-7xl px-5 pt-16 sm:px-8">
+    <main id="contenido" className="mx-auto max-w-7xl px-5 pt-16 sm:px-8">
       <SectionHeading
         eyebrow="Crónicas del reino"
         title="Noticias de Hispania"

@@ -75,7 +75,7 @@ const SYSTEMS = [
 
 export default function SistemasPage() {
   return (
-    <main className="mx-auto max-w-7xl px-5 pt-16 sm:px-8">
+    <main id="contenido" className="mx-auto max-w-7xl px-5 pt-16 sm:px-8">
       <SectionHeading
         eyebrow="Sistemas de juego"
         title="Un reino con reglas que se cumplen"

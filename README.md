@@ -43,6 +43,22 @@ npm run preview
 | `/sistemas` | Grupos, clanes, castillos y asedios |
 | `/jugar` | Primeros pasos |
 
+## El códice interactivo
+
+- Búsqueda global de clases, habilidades, criaturas, objetos, armas y habitantes.
+- Catálogo de profesiones con filtros por linaje, nivel y rol, búsqueda por habilidad y vista del árbol de evolución.
+- Fichas con secciones de habilidades, atributos y evolución. Cada técnica muestra maná, alcance, recarga y un desglose desplegable.
+- El grimorio filtra las habilidades por linaje y enlaza a las profesiones que las utilizan.
+- Navegación móvil, acceso por teclado y animaciones que respetan `prefers-reduced-motion`.
+
+Las habilidades mostradas son las asignadas a cada profesión; no se suman las
+listas de los ancestros. El catálogo actual contiene cinco técnicas, compartidas
+por las 60 profesiones. No se deducen habilidades adicionales de las descripciones
+de los roles. Los efectos que aún no tienen desglose se indican como pendientes.
+
+La ilustración ambiental de portada es un recurso original generado para esta
+web. Se sirve localmente como WebP (`public/images/hispania-hero.webp`).
+
 ## De dónde salen los datos
 
 Las estadísticas de clases, habilidades, criaturas y objetos se extrajeron del

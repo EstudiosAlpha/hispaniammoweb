@@ -21,7 +21,7 @@ export default function ObjetosPage() {
   const questItems = byCategory('Misión');
 
   return (
-    <main className="mx-auto max-w-7xl px-5 pt-16 sm:px-8">
+    <main id="contenido" className="mx-auto max-w-7xl px-5 pt-16 sm:px-8">
       <SectionHeading
         eyebrow="Arsenal e inventario"
         title="Todo lo que puedes empuñar, cargar y encantar"
@@ -35,7 +35,7 @@ export default function ObjetosPage() {
             .slice()
             .sort((a, b) => a.id - b.id)
             .map((w) => (
-              <article key={w.slug} className="panel panel-riveted card-hover p-6">
+              <article id={w.slug} key={w.slug} className="panel panel-riveted card-hover p-6">
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="display text-lg leading-snug text-[var(--parchment)]">
                     {w.name}
@@ -83,7 +83,7 @@ export default function ObjetosPage() {
             <h2 className="display text-[12px] tracking-arms text-[var(--gold)]">{title}</h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {list.map((i) => (
-                <article key={i.slug} className="panel card-hover p-5">
+                <article id={i.slug} key={i.slug} className="panel card-hover p-5">
                   <div className="flex items-start justify-between gap-2">
                     <h3 className="display text-[15px] leading-snug text-[var(--parchment)]">
                       {i.name}

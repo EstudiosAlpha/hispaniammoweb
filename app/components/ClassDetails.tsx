@@ -1,0 +1,33 @@
+'use client';
+import Link from 'next/link';
+import { useState, type CSSProperties } from 'react';
+import { childrenOf, lineageOf, skillByName, themeOf, TIER_LABEL, type GameClass, type Stats } from '../lib/data';
+import { number } from '../lib/codex';
+import SkillCard from './SkillCard';
+import Icon, { CLASS_ICON } from './Icon';
+
+const ATTRS: [keyof Stats, string][] = [['strength', 'Fuerza'], ['dexterity', 'Destreza'], ['constitution', 'Constitución'], ['intelligence', 'Inteligencia'], ['wisdom', 'Sabiduría'], ['spirit', 'Espíritu']];
+const SECTIONS = [{ key: 'skills', name: 'Habilidades' }, { key: 'stats', name: 'Atributos y combate' }, { key: 'evolution', name: 'Evolución' }];
+export default function ClassDetails({ cls }: { cls: GameClass }) {
+  const [section, setSection] = useState('skills');
+  const theme = themeOf(cls.rootSlug);
+  const lineage = lineageOf(cls.slug);
+  const next = childrenOf(cls.slug);
+  const s = cls.stats;
+  const g = cls.growth;
+  const maxAttr = Math.max(...ATTRS.map(([key]) => s[key]));
+  const combat: [string, string][] = [
+    ['Ataque físico', number(s.pAtk)], ['Ataque mágico', number(s.mAtk)], ['Defensa física', number(s.pDef)], ['Defensa mágica', number(s.mDef)], ['Alcance', `${number(s.atkRange)} m`], ['Ataques por segundo', number(s.atkSpeed)], ['Velocidad de conjuro', number(s.castSpeed)], ['Precisión', `${number(s.hit * 100)} %`], ['Evasión', `${number(s.evasion * 100)} %`], ['Probabilidad de crítico', `${number(s.crit * 100)} %`], ['Daño crítico', `×${number(s.critMult)}`],
+  ];
+  const growth: [string, number][] = [['Vida', g.healthPerLevel], ['Maná', g.manaPerLevel], ['Ataque físico', g.physicalAttackPerLevel], ['Ataque mágico', g.magicalAttackPerLevel], ['Defensa física', g.physicalDefensePerLevel], ['Defensa mágica', g.magicalDefensePerLevel], ['Fuerza', g.strengthPerLevel], ['Destreza', g.dexterityPerLevel], ['Constitución', g.constitutionPerLevel], ['Inteligencia', g.intelligencePerLevel], ['Sabiduría', g.wisdomPerLevel], ['Espíritu', g.spiritPerLevel]];
+  return <div style={{ '--class-accent': theme.accent } as CSSProperties}>
+    <nav className="breadcrumbs" aria-label="Ruta de evolución"><Link href="/clases">Clases</Link>{lineage.map(step => <span key={step.slug}><span aria-hidden="true">/</span>{step.slug === cls.slug ? <span aria-current="page">{step.name}</span> : <Link href={`/clases/${step.slug}`}>{step.name}</Link>}</span>)}</nav>
+    <header className="class-hero"><div className="class-title-group"><span className="class-emblem"><Icon name={CLASS_ICON[cls.rootSlug]} size={38} /></span><div><p className="eyebrow">{cls.root.toLocaleUpperCase('es')} <span>·</span> {TIER_LABEL[cls.tier].toLocaleUpperCase('es')}</p><h1>{cls.name}</h1><p className="class-role">{cls.role} <span>·</span> Disponible en nivel {cls.requiredLevel}</p></div></div><p className="class-description">{cls.description}</p><div className="class-vitals"><div><span>Vida base</span><strong>{number(s.hp)} <small>HP</small></strong></div><div><span>Maná base</span><strong>{number(s.mp)} <small>MP</small></strong></div><div><span>Habilidades</span><strong>{cls.skills.length}</strong></div><div><span>Linaje</span><strong className="vital-root">{cls.root}</strong></div></div></header>
+    <div className="detail-navigation" role="group" aria-label="Información de la clase">{SECTIONS.map(tab => <button key={tab.key} aria-pressed={section === tab.key} aria-controls="class-content" onClick={() => setSection(tab.key)}>{tab.name}{tab.key === 'skills' && <span>{cls.skills.length}</span>}</button>)}</div>
+    <section id="class-content" key={section} className="detail-content">
+      {section === 'skills' && <><div className="section-topline"><div><h2 className="content-title">Habilidades de {cls.name}</h2><p className="section-intro">Las técnicas asignadas a esta profesión y cómo usarlas.</p></div><Link className="text-link" href="/habilidades">Abrir el grimorio <Icon name="arrow" size={16} /></Link></div><div className="skills-grid class-skills">{cls.skills.map(name => { const skill = skillByName(name); return skill ? <SkillCard key={name} skill={skill} /> : <article className="skill-card" key={name}><h3>{name}</h3><p>Ficha pendiente de publicar.</p></article>; })}</div><p className="catalog-note">El códice muestra las habilidades registradas actualmente. Las técnicas pueden compartirse entre profesiones; consulta cada ficha al evolucionar.</p></>}
+      {section === 'stats' && <><div className="attributes-layout"><div className="stat-panel"><h2 className="content-title">Atributos base</h2><div className="attribute-bars">{ATTRS.map(([key, label]) => <div key={key}><div><span>{label}</span><strong>{number(s[key])}</strong></div><div className="attribute-track"><span style={{ width: `${s[key] / maxAttr * 100}%` }} /></div></div>)}</div></div><div className="stat-panel"><h2 className="content-title">Valores de combate</h2><dl className="combat-grid">{combat.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl></div></div><div className="stat-panel growth-panel"><h2 className="content-title">Crecimiento por nivel</h2><p className="section-intro">Lo que suma cada nivel con esta profesión.</p><dl className="growth-grid">{growth.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>+{number(value)}</dd></div>)}</dl></div></>}
+      {section === 'evolution' && <><h2 className="content-title">Tu camino hasta {cls.name}</h2><div className="evolution-chain">{lineage.map(step => <Link key={step.slug} href={`/clases/${step.slug}`} aria-current={step.slug === cls.slug ? 'page' : undefined}><span className="evolution-level">{step.requiredLevel}</span><span><small>{TIER_LABEL[step.tier]}</small><strong>{step.name}</strong><span>{step.role}</span></span>{step.slug === cls.slug ? <span className="current-badge">Clase actual</span> : <Icon name="arrow" size={18} />}</Link>)}</div><h2 className="content-title next-heading">{next.length ? 'Tu siguiente elección' : 'Has llegado a la maestría'}</h2>{next.length ? <div className="next-classes">{next.map(c => <Link className="profession-card" href={`/clases/${c.slug}`} key={c.slug}><p className="eyebrow">NIVEL {c.requiredLevel} · {TIER_LABEL[c.tier]}</p><h3>{c.name}</h3><p className="profession-role">{c.role}</p><p className="profession-description">{c.description}</p><span className="profession-link">Conocer esta profesión <Icon name="arrow" size={16} /></span></Link>)}</div> : <p className="section-intro">Esta es la profesión final de tu rama. <Link className="text-link" href="/clases">Descubrir otros caminos →</Link></p>}</>}
+    </section>
+  </div>;
+}

@@ -69,6 +69,8 @@ const data = raw as unknown as {
  * wording.
  */
 const PLAYER_FACING_DESCRIPTIONS: Record<string, string> = {
+  'Maestro de la Piedra': 'Maestro de la alquimia que domina elixires, bombas y venenos.',
+  'Fantasma de Hispania': 'Clase definitiva de emboscada: aparece, ejecuta y desaparece.',
   'Ataque básico': 'El golpe fundamental de todo héroe de Hispania. Rápido, fiable y sin coste de maná.',
   'Llama hispana': 'Prende al enemigo con fuego arcano: daño inmediato y una quemadura que sigue consumiéndolo.',
   'Pergamino de encantamiento': 'Pergamino que refuerza una pieza de equipo. Si la suerte falla, el objeto se pierde.',

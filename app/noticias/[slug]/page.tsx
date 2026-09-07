@@ -47,7 +47,7 @@ export default async function NoticiaPage({
   const { masReciente, masAntigua } = vecinasDe(noticia.slug);
 
   return (
-    <main className="mx-auto max-w-3xl px-5 pt-16 sm:px-8">
+    <main id="contenido" className="mx-auto max-w-3xl px-5 pt-16 sm:px-8">
       <Link
         href="/noticias"
         className="display text-[11px] tracking-[0.18em] text-[var(--muted)] uppercase transition-colors hover:text-[var(--gold-bright)]"
